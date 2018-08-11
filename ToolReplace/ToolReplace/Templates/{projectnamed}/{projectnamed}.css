@@ -1,0 +1,82 @@
+﻿@charset "UTF-8";
+.contents_container#{projectnamed} {
+  position: absolute;
+  top: 0px;
+  -webkit-transform: translateY(630px);
+      -ms-transform: translateY(630px);
+          transform: translateY(630px);
+}
+.contents_container#{projectnamed}.show {
+        /* 表示 */
+        -webkit-transform: translateY(0px);
+        -ms-transform: translateY(0px);
+        transform: translateY(0px);
+}
+.contents_container#{projectnamed} {
+  z-index: 1002;
+}
+
+#{projectnamed}.contents_container {
+  background: #f4eee2;
+}
+#{projectnamed}.contents_container .search_input_area {
+  padding: 7px 0 8px;
+}
+#{projectnamed}.contents_container .search_input_area .search_input_list {
+  display: none;
+  width: 100%;
+  text-align: center;
+  padding: 0 10px;
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+}
+#{projectnamed}.contents_container .search_input_area .search_input_list li {
+  padding: 5px;
+  width: 400px;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-pack: start;
+     -ms-flex-pack: start;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+#{projectnamed}.contents_container .search_input_area .search_input_list li .label {
+  width: 100px;
+  padding-right: 10px;
+  text-align: right;
+  display: inline-block;
+  font-size: 18px;
+}
+#{projectnamed}.contents_container .search_input_area .search_input_list li.search_btn_area {
+    float: right;
+    width: 350px;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+}
+#{projectnamed}.contents_container .search_input_area .search_input_list li .textbox,
+#{projectnamed}.contents_container .search_input_area .search_input_list li .combobox {
+  margin: 5px;
+}
+#{projectnamed}.contents_container .search_input_area .search_input_list li.search_btn_area .btn {
+    min-width: 110px;
+    height: 60px;
+    margin: 5px;
+}
+#{projectnamed}.contents_container .search_input_list {
+    display: -webkit-inline-box !important;
+    display: -webkit-inline-flex !important;
+    display: -ms-inline-flexbox !important;
+    display: inline-flex !important;
+}
+#{projectnamed}.contents_container .data_view_table {
+    margin: 10px;
+}

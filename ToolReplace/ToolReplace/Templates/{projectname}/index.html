@@ -1,0 +1,230 @@
+﻿<!DOCTYPE html>
+
+<html lang="ja">
+<head>
+    <meta charset="UTF-8" />
+    <title>店舗移動指示取消</title>
+    <!-- head include -->
+    <meta name="viewport" content="width=1280">
+    <script src="../../Lib/js.cookie.js"></script>
+    <!-- onLoad jQuery -->
+    <script src="../../Lib/jquery-3.3.1.min.js"></script>
+    <script src="../../Lib/jquery.tablesorter.js"></script>
+    <script src="../../Lib/jquery-ui.js"></script>
+    <link rel="stylesheet" href="../../Lib/jquery-ui.css" />
+    <!-- common js -->
+    <script src="../../CommonFile/Scripts/config.js"></script>
+    <script src="../../CommonFile/Scripts/common.js"></script>
+    <script src="../../CommonFile/Scripts/string.js"></script>
+    <script src="../../CommonFile/Scripts/date.js"></script>
+    <script src="../../CommonFile/Scripts/holon.holongrid.js"></script>
+    <script src="../../CommonFile/Scripts/holongrid.dev.js"></script>
+    <script src="../../CommonFile/Scripts/holon.function.js"></script>
+    <script src="../../CommonFile/Scripts/holon.prototype.js"></script>
+    <!-- common css -->
+    <link rel="stylesheet" href="../../CommonFile/Styles/reset.css" />
+    <link rel="stylesheet" href="../../CommonFile/Styles/common.css" />
+    <link rel="stylesheet" href="../../CommonFile/Styles/font.css" />
+    <link rel="stylesheet" href="../../CommonFile/Styles/holongrid.dev.css" />
+    <!-- icon -->
+    <link rel="shortcut icon" href="../../CommonFile/Styles/Images/favicon.ico">
+    <!-- dialog -->
+    <script src="../../dialog/tzcc110e/tzcc110e.js"></script>
+    <link rel="stylesheet" href="../../dialog/tzcc110e/tzcc110e.css" />
+    <script src="../../dialog/tzznoh01/tzznoh01.js"></script>
+    <link rel="stylesheet" href="../../dialog/tzznoh01/tzznoh01.css" />
+    <script src="../../dialog/tzce110e/tzce110e.js"></script>
+    <link rel="stylesheet" href="../../dialog/tzce110e/tzce110e.css" />
+    <script src="../../dialog/tzfg100e/tzfg100e.js"></script>
+    <link rel="stylesheet" href="../../dialog/tzfg100e/tzfg100e.css" />
+    <script src="../../dialog/tzfg110e/tzfg110e.js"></script>
+    <link rel="stylesheet" href="../../dialog/tzfg110e/tzfg110e.css" />
+    <!--  page unique js,css -->
+    <script src="tfg110e.js"></script>
+</head>
+<body>
+    <div id="container" class="container">
+        <!-- ◆ header ◆_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/ -->
+        <div id="header"></div>
+        <!-- /#header -->
+        <div id="contents" class="contents">
+            <!--★ファイル名：Form01.cs    パネル：panel1 -->
+            <section id="panel1" class="contents_container">
+                <div class="flex_container">
+                    <div class="input_area">
+                        <div class="input_btn_area">
+                            <button class="btF4 btn blue"><span>次へ</span></button>
+                        </div>
+                        <!-- /.input_btn_area -->
+                        <div class="input_item_flex_area">
+                            <div class="input_item_area">
+                                <div class="input_item" id="ii表示区分">
+                                    <h1 class="label" id="lb表示区分">表示区分</h1>
+                                    <select id="cb表示区分" class="combobox">
+                                        <option value="0">移動元・移動先を表示する</option>
+                                        <option value="1">移動元・移動先を表示しない</option>
+                                    </select>
+                                </div><!-- /.input_item -->
+                            </div><!-- /.input_item_area -->
+                        </div><!-- /.input_item_flex_area -->
+                    </div><!-- /.input_area -->
+                </div><!-- /.flex_container -->
+            </section><!-- /#contents.panel1 -->
+            <!--★ファイル名：Form01.cs    パネル：panel2 -->
+            <section id="panel2" class="contents_container">
+                <header id="panel2_header" class="panel2_header">
+                    <div class="info_change_btn">
+                        <button class="btF3 btn change_btn"><div><span>情報を変更</span></div></button>
+                    </div>
+                    <div class="header_related_infomation_cont2">
+                        <ul class="related_info_list">
+                            <li id="li表示区分" class="l_3"> <span id="tt表示区分" class="tit">表示区分</span> <span id="hd表示区分" class="detail trimmer"></span> </li>
+                        </ul>
+                    </div>
+                </header>
+                <div class="flex_container2">
+                    <div class="input_area">
+                        <div class="input_btn_area">
+                            <button class="btF4 btn blue"><div><span>次へ</span></div></button>
+                        </div>
+                        <div class="input_item_flex_area">
+                            <div class="input_item_area">
+                                <div class="input_item" id="ii品番">
+                                    <h1 class="label" id="lb品番">品番</h1>
+                                    <input type="url" id="tbMHN品番" maxlength="15" class="textbox plusbtn" />
+                                    <input type="url" id="tbSB1サブ１" maxlength="8" class="textbox plusbtn" />
+                                    <button class="btF1 btn icon" id="bt検索MHN品番"><span class="icon-search"></span></button>
+                                </div><!-- /.input_item -->
+                                <div class="input_item" id="iiサブ２">
+                                    <h1 class="label" id="lbサブ２">サブ２</h1>
+                                    <input type="url" id="tbSB2サブ２" maxlength="8" class="textbox plusbtn" />
+                                    <button class="btF1 btn icon" id="bt検索SB2サブ２"><span class="icon-search"></span></button>
+                                </div><!-- /.input_item -->
+                                <div class="input_item" id="iiサブ３">
+                                    <h1 class="label" id="lbサブ３">サブ３</h1>
+                                    <input type="url" id="tbSB3サブ３" maxlength="8" class="textbox plusbtn" />
+                                    <button class="btF1 btn icon" id="bt検索SB3サブ３"><span class="icon-search"></span></button>
+                                </div><!-- /.input_item -->
+                                <div class="input_item" id="ii移動元">
+                                    <h1 class="label" id="lb移動元">移動元</h1>
+                                    <input type="url" id="tbTRC移動元" maxlength="8" class="textbox plusbtn" />
+                                    <input type="url" id="tbTPC移動元店" maxlength="6" class="textbox plusbtn" />
+                                    <button class="btF1 btn icon" id="bt検索TRC移動元"><span class="icon-search"></span></button>
+                                </div><!-- /.input_item -->
+                                <div class="input_item" id="ii移動元セクション">
+                                    <h1 class="label" id="lb移動元セクション">移動元ｾｸｼｮﾝ</h1>
+                                    <input type="url" id="tbSEC移動元セクション" maxlength="6" class="textbox plusbtn" />
+                                    <button class="btF1 btn icon" id="bt検索SEC移動元セクション"><span class="icon-search"></span></button>
+                                </div><!-- /.input_item -->
+                                <div class="input_item" id="ii移動先">
+                                    <h1 class="label" id="lb移動先">移動先</h1>
+                                    <input type="url" id="tbTRC移動先" maxlength="8" class="textbox plusbtn" />
+                                    <input type="url" id="tbTPC移動先店" maxlength="6" class="textbox plusbtn" />
+                                    <button class="btF1 btn icon" id="bt検索TRC移動先"><span class="icon-search"></span></button>
+                                </div><!-- /.input_item -->
+                                <div class="input_item" id="ii移動先セクション">
+                                    <h1 class="label" id="lb移動先セクション">移動先ｾｸｼｮﾝ</h1>
+                                    <input type="url" id="tbSEC移動先セクション" maxlength="6" class="textbox plusbtn" />
+                                    <button class="btF1 btn icon" id="bt検索SEC移動先セクション"><span class="icon-search"></span></button>
+                                </div><!-- /.input_item -->
+                                <div class="input_item" id="ii指示日">
+                                    <h1 class="label" id="lb指示日">指示日</h1>
+                                    <input type="date" id="tb指示日" class="textbox datepicker" />
+                                </div><!-- /.input_item -->
+                                <div class="input_item" id="ii指示番号">
+                                    <h1 class="label" id="lb指示番号">指示番号</h1>
+                                    <input type="tel" id="tb開始指示番号" maxlength="9" class="textbox plusbtn" />～
+                                </div><!-- /.input_item -->
+                                <div class="input_item" id="iiから">
+                                    <!--<h1 class="label" id="lbから">～</h1>-->
+                                    <input type="tel" id="tb終了指示番号" maxlength="9" class="textbox plusbtn" />
+                                </div><!-- /.input_item -->
+                                <div class="input_item" id="ii担当者">
+                                    <h1 class="label" id="lb担当者">担当者</h1>
+                                    <input type="url" id="tbTAN指示担当者" maxlength="7" class="textbox plusbtn" />
+                                    <button class="btF1 btn icon" id="bt検索TAN指示担当者"><span class="icon-search"></span></button>
+                                </div><!-- /.input_item -->
+                                <div class="input_item" id="ii処理区分">
+                                    <h1 class="label" id="lb処理区分">処理区分</h1>
+                                    <select id="cb処理区分" class="combobox">
+                                        <option value="0">すべて</option>
+                                        <option value="1">店舗間移動</option>
+                                        <option value="2">物流戻り</option>
+                                        <option value="3">仕入返品</option>
+                                    </select>
+                                </div><!-- /.input_item -->
+                                <div class="input_item" id="ii表示順">
+                                    <h1 class="label" id="lb表示順">表示順</h1>
+                                    <select id="cb表示順" class="combobox">
+                                        <option value="0">入力順</option>
+                                        <option value="1">単品順</option>
+                                        <option value="2">指示日順</option>
+                                        <option value="3">移動元順</option>
+                                        <option value="4">移動先順</option>
+                                    </select>
+                                </div><!-- /.input_item -->
+                            </div><!-- /.input_item_area -->
+                        </div><!-- /.input_item_flex_area -->
+                    </div><!-- /.input_area -->
+                </div><!-- /.flex_container -->
+            </section><!-- /#contents.panel2 -->
+            <!--★ファイル名：Form01.cs    パネル：panel3 -->
+            <section id="panel3" class="contents_container">
+                <header id="panel3_header" class="panel2_header">
+                    <div class="info_change_btn">
+                        <button class="btF3 btn change_btn"><div><span>情報を変更</span></div></button>
+                    </div>
+                    <div class="header_related_infomation_cont2">
+                        <ul class="related_info_list">
+                            <li id="li品番" class="l_3"> <span id="tt品番" class="tit">品番</span> <span id="hd品番" class="detail trimmer"></span> </li>
+                            <li id="liサブ２" class="l_3"> <span id="ttサブ２" class="tit">サブ２</span> <span id="hdサブ２" class="detail trimmer"></span> </li>
+                            <li id="liサブ３" class="l_3"> <span id="ttサブ３" class="tit">サブ３</span> <span id="hdサブ３" class="detail trimmer"></span> </li>
+                            <li id="li移動元" class="l_3"> <span id="tt移動元" class="tit">移動元</span> <span id="hd移動元" class="detail trimmer"></span> </li>
+                            <li id="li移動元ｾｸｼｮﾝ" class="l_3"> <span id="tt移動元ｾｸｼｮﾝ" class="tit">移動元ｾｸｼｮﾝ</span> <span id="hd移動元ｾｸｼｮﾝ" class="detail trimmer"></span> </li>
+                            <li id="li移動先" class="l_3"> <span id="tt移動先" class="tit">移動先</span> <span id="hd移動先" class="detail trimmer"></span> </li>
+                            <li id="li移動先ｾｸｼｮﾝ" class="l_3"> <span id="tt移動先ｾｸｼｮﾝ" class="tit">移動先ｾｸｼｮﾝ</span> <span id="hd移動先ｾｸｼｮﾝ" class="detail trimmer"></span> </li>
+                            <li id="li指示日" class="l_3"> <span id="tt指示日" class="tit">指示日</span> <span id="hd指示日" class="detail trimmer"></span> </li>
+                            <li id="li指示番号" class="l_3"> <span id="tt指示番号" class="tit">指示番号</span> <span id="hd指示番号" class="detail trimmer"></span> </li>
+                            <li id="li担当者" class="l_3"> <span id="tt担当者" class="tit">担当者</span> <span id="hd担当者" class="detail trimmer"></span> </li>
+                            <li id="li処理区分" class="l_3"> <span id="tt処理区分" class="tit">処理区分</span> <span id="hd処理区分" class="detail trimmer"></span> </li>
+                            <li id="li表示順" class="l_3"> <span id="tt表示順" class="tit">表示順</span> <span id="hd表示順" class="detail trimmer"></span> </li>
+                        </ul>
+                    </div>
+                </header>
+                <div class="flex_container2">
+                    <div class="input_area">
+                        <h1 class="label" id="lbコメント">選択したい行の「選択」列に\'1\'を入力してください</h1>
+                        <section class="data_view_area">
+                            <div class="data_view_table">
+                                <div id="tbl1" class="hlnTbl"></div>
+                            </div>
+                        </section>
+                        <!--<section class="data_total_area">-->
+                        <section class="data_total_area">
+                            <div class="data_total_item operation">
+                                <button class="btF10 btn blue"><span>一括選択</span></button>
+                                <button class="btF9 btn blue"><span class="icon-regist"></span><span>登録</span></button>
+                            </div>
+                        </section>
+                        <!--</section>-->
+                    </div><!-- /.input_area -->
+                </div><!-- /.flex_container -->
+            </section><!-- /#contents.panel3 -->
+        </div><!-- /#contents.contents -->
+        <section id="bzcd550e" class="contents_container"></section>
+
+        <section id="tzcc110e" class="contents_container"></section>
+        <section id="tzznoh01" class="contents_container"></section>
+        <section id="tzce110e" class="contents_container"></section>
+        <section id="tzfg100e" class="contents_container"></section>
+        <section id="tzfg110e" class="contents_container"></section>
+
+        <!-- footer include -->
+        <div id="footer"></div>
+        <!-- /#footer -->
+    </div>
+    <!-- /.container -->
+
+
+</body>
+</html>
